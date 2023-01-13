@@ -5,15 +5,15 @@ public class Main {
 
 
 	public static void main(String[] args) throws InterruptedException {
-		GameCharacter c1 = new GameCharacter(CharacterClass.HEALER,25);
+		GameCharacter c1 = new GameCharacter(CharacterClass.HEALER,10);
 		GameCharacter c2 = new GameCharacter(CharacterClass.MAGE,100);
-		GameCharacter c3 = new GameCharacter(CharacterClass.HEALER,25);
+		GameCharacter c3 = new GameCharacter(CharacterClass.HEALER,10);
 
 		GameCharacter[] t1 = {c1,c2,c3};
 
-		GameCharacter d1 = new GameCharacter(CharacterClass.HEALER,25);
+		GameCharacter d1 = new GameCharacter(CharacterClass.HEALER,10);
 		GameCharacter d2 = new GameCharacter(CharacterClass.MAGE,100);
-		GameCharacter d3 = new GameCharacter(CharacterClass.HEALER,25);
+		GameCharacter d3 = new GameCharacter(CharacterClass.HEALER,10);
 
 		GameCharacter[] t2 = {d1,d2,d3};
 

@@ -28,6 +28,6 @@ public class GameCharacter {
 
     @Override
     public String toString() {
-        return cClass + " | isDEAD?" + isDead() + " - Health: " + health;
+        return cClass + " | isDEAD?" + isDead() + " - Health: " + (isDead() ? 0 : health);
     }
 }
