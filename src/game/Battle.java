@@ -1,37 +1,33 @@
 package game;
 
-import models.Entity;
-import models.Mob;
-import models.Player;
+import models.GameCharacter;
 
-public class Battle {
-    Player player;
-    Mob mob;
-
-    public Battle(Player player, Mob mob) {
-        this.player = player;
-        this.mob = mob;
-        battle();
+public class Battle extends Thread {
+    GameCharacter from,target;
+    GameCharacter[] targets;
+    public Battle(GameCharacter from, GameCharacter target) {
+        this.from = from;
+        this.target = target;
     }
 
-    public void checkWinner() {
-        Entity w = mob;
-        if(mob.isDead()) {
-            w = player;
-            mob.dropXP(player);
-        }
-        player.display();
-        mob.display();
-        System.out.printf("%s Won the Battle!\n\n",w.name);
-        player.levelUP();
+    public Battle(GameCharacter from, GameCharacter[] targets) {
+        this.from = from;
+        this.targets = targets;
     }
 
-    public void battle() {
-        int phase = 1;
-        while (!player.isDead() && !mob.isDead()) {
-            player.attack(mob);
-            mob.attack(player);
+    @Override
+    public void run() {
+        while (!from.isDead()) {
+            switch (from.cClass) {
+                case HEALER, MAGE -> from.action(targets);
+                case WARRIOR -> from.action(target);
+            }
+            try {
+                Thread.sleep(from.speed * 1000L);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+
+            }
         }
-        checkWinner();
     }
 }
