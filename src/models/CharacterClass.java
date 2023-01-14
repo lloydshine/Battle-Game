@@ -20,8 +20,8 @@ public enum CharacterClass
     MAGE {
         @Override
         public void action(GameCharacter from, GameCharacter[] targets) {
-            int crit = (int)(Math.random()*(100-1+1)+1) > 100-from.crit_chance ? from.damage * 2 : 0;
             for (GameCharacter gc : targets) {
+                int crit = (int)(Math.random()*(100-1+1)+1) > 100-from.crit_chance ? from.damage * 2 : 0;
                 gc.health -= from.damage + crit;
             }
 
