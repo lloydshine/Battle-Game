@@ -17,8 +17,8 @@ public class Main {
 
 		GameCharacter[] t2 = {d1,d2,d3};
 
-		Team team1 = new Team(t1, "Karl");
-		Team team2 = new Team(t2, "Carlo");
+		Team team1 = new Team(t1, "ECHO");
+		Team team2 = new Team(t2, "BLACKLIST");
 
 		team1.gotoBattle(team2);
 		team2.gotoBattle(team1);
