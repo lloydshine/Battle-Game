@@ -40,6 +40,7 @@ public enum CharacterClass
         public void action(GameCharacter from, GameCharacter[] targets) {
             int heal = (from.level / 2) * 10;
             for (GameCharacter gc : targets) {
+                if(gc.isDead()) continue;
                 int bonus = (int)(Math.random()*(100-1+1)+1) > 100-from.crit_chance ? heal * 2 : 0;
                 gc.health += heal + bonus;
             }

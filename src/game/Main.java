@@ -5,15 +5,15 @@ public class Main {
 
 
 	public static void main(String[] args) throws InterruptedException {
-		GameCharacter c1 = new GameCharacter(CharacterClass.HEALER,10);
-		GameCharacter c2 = new GameCharacter(CharacterClass.MAGE,100);
-		GameCharacter c3 = new GameCharacter(CharacterClass.HEALER,10);
+		GameCharacter c1 = new GameCharacter(CharacterClass.HEALER,2);
+		GameCharacter c2 = new GameCharacter(CharacterClass.MAGE,1);
+		GameCharacter c3 = new GameCharacter(CharacterClass.WARRIOR,1);
 
 		GameCharacter[] t1 = {c1,c2,c3};
 
-		GameCharacter d1 = new GameCharacter(CharacterClass.HEALER,10);
-		GameCharacter d2 = new GameCharacter(CharacterClass.MAGE,100);
-		GameCharacter d3 = new GameCharacter(CharacterClass.HEALER,10);
+		GameCharacter d1 = new GameCharacter(CharacterClass.HEALER,2);
+		GameCharacter d2 = new GameCharacter(CharacterClass.MAGE,1);
+		GameCharacter d3 = new GameCharacter(CharacterClass.WARRIOR,1);
 
 		GameCharacter[] t2 = {d1,d2,d3};
 
@@ -33,9 +33,8 @@ public class Main {
 		}
 
 		Team winner = team1.isDefeated() ? team2 : team1;
+		winner.hasWon = true;
 		System.out.println("Winner: " + winner.name);
-		team1.killTeam();
-		team2.killTeam();
 	}
 }
 

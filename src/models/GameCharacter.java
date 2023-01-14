@@ -11,6 +11,8 @@ public class GameCharacter {
     public final int MINIMUM_HEALTH = 100;
     public final int MINIMUM_DAMAGE= 10;
 
+    public int POSITION;
+
     public GameCharacter(CharacterClass cClass,int level) {
         this.cClass = cClass;
         this.health = MINIMUM_HEALTH + (level * 20);
